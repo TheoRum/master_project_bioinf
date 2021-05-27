@@ -87,7 +87,7 @@ A non-compiled version of the GIFT packages was downloaded which was copied, wit
 
 
 ## Quality assessments of the input data
-This was done visually using an in-house developed Python script "sle_7T_rsfmri_QA_raw.py"
+This was done visually using an in-house developed Python script ([sle_7T_rsfmri_QA_raw.py](sle_7T_rsfmri_QA_raw.sh)).
 
 **No abnormalities detected**
 
@@ -95,7 +95,7 @@ This was done visually using an in-house developed Python script "sle_7T_rsfmri_
 ## fMRIprep
 The fMRIprep docker container was tested on one subject first using combinations of different preprocessing steps. E.g. the "recon-all" modus to segment the brain was not used due to some unknown error. However, this analysis was not necessary for this work. Further, different output types as well as saving the working data were tested.
 
-For the final command, a bash script (pipeline_fmriprep_ppfMRIprep.sh) with a for-loop was used to preprocess the subjects sequentially. Additionally, the docker container was deleted to avoid a conflict that the next subject is called with the same container name.
+For the final command, a bash script ([pipeline_fmriprep_ppfMRIprep.sh](pipeline_fmriprep_ppfMRIprep.sh)) with a for-loop was used to preprocess the subjects sequentially. Additionally, the docker container was deleted to avoid a conflict that the next subject is called with the same container name.
 
 ```bash
 #!/bin/bash
@@ -125,7 +125,7 @@ echo $! > $HOME/hd/SLE/DATA_7T/rsfmri_200909/save_pid_ppfMRIprep.txt
 
 
 ## CPAC
-CPAC was also tested on a single subject before and different combinations of the different steps were used. The pipeline configuration file (/configs/pipeline_config_ppCPAC_fmriprep.yml) was copied from the CPAC pipeline (see: https://fcp-indi.github.io/docs/nightly/user/pipelines/preconfig#fmriprep-options-fmriprep-options-pipeline) and manually adapted to the fMRIprep pipeline, except the preprocessing steps which were investigated. 
+CPAC was also tested on a single subject before and different combinations of the different steps were used. The pipeline configuration file ([pipeline_config_ppCPAC.yml](pipeline_config_ppCPAC.yml)) was copied from the CPAC pipeline (see: https://fcp-indi.github.io/docs/nightly/user/pipelines/preconfig#fmriprep-options-fmriprep-options-pipeline) and manually adapted to the fMRIprep pipeline, except the preprocessing steps which were investigated. 
 
 In the final preprocessing, a non-replicable error occured at every second subject. It seemed obvious that the error occured due to some internal resources at the Poweredge. Therefor, the whole preprocessing was restarted 3 times until all subjects were finished without an error. 
 
@@ -134,21 +134,20 @@ docker run -itd --name ppCPAC -v $HOME/hd/SLE/DATA_7T/rsfmri_200909/Nifti_master
 ```
 
 
-
 # Analysis
 
 ## Nuisance regression, normalization + scrubbing
-The comparison of the framewise displacement (FD) was done visually using an in-house developed Python script "sle_7T_rsfmri_QA_confounds.py"
+The comparison of the framewise displacement (FD) was done visually using an in-house developed Python script ([sle_7T_rsfmri_QA_confounds.py](sle_7T_rsfmri_QA_confounds.py)).
 
 ### fMRIprep
-The nuisance regression was only necessary to apply on the data from fMRIprep. Additionally, a normalization and high-motion volumes were removed from the time-series (scrubbing) using an in-house developed Python script (sle_7T_rsfmri_pp_master_fmriprep.py ).
+The nuisance regression was only necessary to apply on the data from fMRIprep. Additionally, a normalization and high-motion volumes were removed from the time-series (scrubbing) using an in-house developed Python script ([sle_7T_rsfmri_pp_master_fmriprep.py](sle_7T_rsfmri_pp_master_fmriprep.py)).
 
 ```bash
 nohup python -u ./sle_7T_rsfmri_pp_master_fmriprep.py > fmriprep.log &
 ```
 
 ### CPAC
-For the CPAC output, only normalization and scrubbing was applied using an in-house developed Python script (sle_7T_rsfmri_pp_master_cpac.py).
+For the CPAC output, only normalization and scrubbing was applied using an in-house developed Python script ([sle_7T_rsfmri_pp_master_cpac.py](sle_7T_rsfmri_pp_master_cpac.py)).
 
 ```bash
 nohup python -u ./sle_7T_rsfmri_pp_master_cpac.py > cpac.log &
@@ -184,7 +183,7 @@ The following ICA components were associated to the following RSN.
 
 
 ### temporal connectivity
-The temoporal connectivity was calculated using the in-house developed Python script "". The RNS and connectograms were visualized using the Matlab function file "icatb_plot_connectogram.m"
+The temoporal connectivity was calculated using the in-house developed Python script ([sle_7T_rsfmri_pp_master_figures.py](sle_7T_rsfmri_pp_master_figures.py)). The RNS and connectograms were visualized using the Matlab function file ([icatb_plot_connectogram.m](icatb_plot_connectogram.m)).
 
 * for all components over both runs the parameters were set the following;
 ```Matlab
@@ -218,8 +217,10 @@ SPM12 was used to test for multiple comparison.
 
 
 # Figures
-All figures were greated using the in-house developed Python script "sle_7T_rsfmri_pp_master_figures.py" and "sle_7T_rsfmri_pp_master_figures.m"
+All figures were greated using the in-house developed Python script ([sle_7T_rsfmri_pp_master_figures.py](sle_7T_rsfmri_pp_master_figures.py)) and ([icatb_plot_connectogram.m](icatb_plot_connectogram.m)).
 
+# Copyright
+Copyright © Theodor Rumetshofer, Department of Clinical Science/Diagnostic Radiology, Lund University, Sweden 
 
 
 
