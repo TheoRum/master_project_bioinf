@@ -82,7 +82,7 @@ A non-compiled version of the GIFT packages was downloaded which was copied, wit
 
 # Preprocessing
 
-## data curation
+## input data
 
 1) From the SLE 7T MRI project (number: 017) the following subjects were included: 116, 117, 119, 122, 126, 130, 131, 132, 133, 138
 2) The following MRI files were copied from the archive: rsfMRI, T1w, phasediff, magnitude
