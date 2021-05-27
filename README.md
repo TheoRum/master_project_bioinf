@@ -93,7 +93,7 @@ A non-compiled version of the GIFT packages was downloaded which was copied, wit
 **No erros detected**
 
 ## Quality assessments of the input data
-This was done visually using an in-house developed Python script ([sle_7T_rsfmri_QA_raw.py](sle_7T_rsfmri_QA_raw.sh)).
+This was done visually using an in-house developed Python script ([data_QA.py](data_QA.py)).
 
 **No abnormalities detected**
 
@@ -141,7 +141,7 @@ docker run -itd --name ppCPAC -v $HOME/hd/SLE/DATA_7T/rsfmri_200909/Nifti_master
 # Analysis
 
 ## Nuisance regression, normalization + scrubbing
-The comparison of the framewise displacement (FD) was done visually using an in-house developed Python script ([sle_7T_rsfmri_QA_confounds.py](sle_7T_rsfmri_QA_confounds.py)).
+The comparison of the framewise displacement (FD) was done visually using an in-house developed Python script ([fd_comparison_QA.py](fd_comparison_QA.py)).
 
 ### fMRIprep
 The nuisance regression was only necessary to apply on the data from fMRIprep. Additionally, a normalization and high-motion volumes were removed from the time-series (scrubbing) using an in-house developed Python script ([sle_7T_rsfmri_pp_master_fmriprep.py](sle_7T_rsfmri_pp_master_fmriprep.py)).
