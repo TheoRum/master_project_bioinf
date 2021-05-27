@@ -85,7 +85,7 @@ A non-compiled version of the GIFT packages was downloaded which was copied, wit
 
 **No erros detected**
 ```diff
-- **No erros detected**
+**No erros detected**
 ```
 
 ## Quality assessments of the input data
