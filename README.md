@@ -7,15 +7,14 @@ README file for a master project in Bioinformatics
 * Master programme in Bioinformatics
 * Department of Biology, Faculty of Science, Lund University, Sweden
 
-The goal of this work was to compare two different rsfMRI preprocessing pipelines on the high-field rsfMRI dataset of ten healthy subjects. The goal of this retrospective study was to evaluate the impact of specific modification in the preprocessing to extracted resting-state networks using indepencent component analysus. Further, to assess the reproducibility and robustness of networks between the different pipelines. The data was part of a larger study on Systemic Lupus Erytematosus at Lund University, Sweden. 
-
+The goal of this work was to compare two different rsfMRI preprocessing pipelines on a high-field MRI dataset of ten healthy subjects. The goal of this retrospective study was to evaluate the impact of specific modification in the preprocessing to extracted resting-state networks using independent component analysis. Further, to assess the reproducibility and robustness of networks between the different pipelines. The data was part of a larger study on Systemic Lupus Erytematosus at Lund University, Sweden. 
 
 
 # People
 * Student: Theodor Rumetshofer (theodor.rumetshofer@gmail.com)
 * Supervisors: Peter Mannfolk (peter.mannfolk@med.lu.se) and Olof Strandberg (olof.strandberg@med.lu.se)
-* Principial Investigator: Pia Sundgren Maly (pia.sundgren@med.lu.se)
 * Institute: Department of Clinical Science/Diagnostic Radiology, Faculty of Medicine, Lund University, Sweden
+* Principial Investigator: Pia Sundgren Maly (pia.sundgren@med.lu.se)
 * Corresponding author: Theodor Rumetshofer 
 
 
@@ -31,7 +30,6 @@ The following software packages were used:
 * Matlab v2016b
 * SPM v12
 * Python Anaconda v3.6.7
-
 
 
 # Installation
@@ -77,7 +75,6 @@ docker pull fcpindi/c-pac:latest
 A non-compiled version of the GIFT packages was downloaded which was copied, without installation into the MATLAB toolbox folder.
 
 
-
 # Preprocessing
 
 ## pre-pare the data
@@ -87,7 +84,7 @@ A non-compiled version of the GIFT packages was downloaded which was copied, wit
 4) BIDS was tested using the following validator: https://bids-standard.github.io/bids-validator/
 
 **No erros detected**
-
+<span style="color:blue">**No erros detected**</span>.
 
 ## Quality assessments of the input data
 This was done visually using an in-house developed Python script "sle_7T_rsfmri_QA_raw.py"
