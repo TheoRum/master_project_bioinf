@@ -1,6 +1,8 @@
 
 # Functional connectivity analysis in the human brain using ultra-high field MRI
 
+
+
 # Project overview
 README file for a master project in Bioinformatics
 * BINP52 - Master project - 60 ECTS
@@ -8,6 +10,7 @@ README file for a master project in Bioinformatics
 * Department of Biology, Faculty of Science, Lund University, Sweden
 
 The goal of this work was to compare two different rsfMRI preprocessing pipelines on a high-field MRI dataset of ten healthy subjects. The goal of this retrospective study was to evaluate the impact of specific modification in the preprocessing to extracted resting-state networks using independent component analysis. Further, to assess the reproducibility and robustness of networks between the different pipelines. The data was part of a larger study on Systemic Lupus Erytematosus at Lund University, Sweden. 
+
 
 
 # People
@@ -30,6 +33,7 @@ The following software packages were used:
 * Matlab v2016b
 * SPM v12
 * Python Anaconda v3.6.7
+
 
 
 # Installation
@@ -75,6 +79,7 @@ docker pull fcpindi/c-pac:latest
 A non-compiled version of the GIFT packages was downloaded which was copied, without installation into the MATLAB toolbox folder.
 
 
+
 # Preprocessing
 
 ## pre-pare the data
@@ -85,12 +90,10 @@ A non-compiled version of the GIFT packages was downloaded which was copied, wit
 
 **No erros detected**
 
-
 ## Quality assessments of the input data
 This was done visually using an in-house developed Python script ([sle_7T_rsfmri_QA_raw.py](sle_7T_rsfmri_QA_raw.sh)).
 
 **No abnormalities detected**
-
 
 ## fMRIprep
 The fMRIprep docker container was tested on one subject first using combinations of different preprocessing steps. E.g. the "recon-all" modus to segment the brain was not used due to some unknown error. However, this analysis was not necessary for this work. Further, different output types as well as saving the working data were tested.
@@ -123,7 +126,6 @@ nohup sh pipeline_fmriprep_ppfMRIprep.sh > $HOME/hd/SLE/DATA_7T/rsfmri_200909/pp
 echo $! > $HOME/hd/SLE/DATA_7T/rsfmri_200909/save_pid_ppfMRIprep.txt
 ```
 
-
 ## CPAC
 CPAC was also tested on a single subject before and different combinations of the different steps were used. The pipeline configuration file ([pipeline_config_ppCPAC.yml](pipeline_config_ppCPAC.yml)) was copied from the CPAC pipeline (see: https://fcp-indi.github.io/docs/nightly/user/pipelines/preconfig#fmriprep-options-fmriprep-options-pipeline) and manually adapted to the fMRIprep pipeline, except the preprocessing steps which were investigated. 
 
@@ -152,7 +154,6 @@ For the CPAC output, only normalization and scrubbing was applied using an in-ho
 ```bash
 nohup python -u ./sle_7T_rsfmri_pp_master_cpac.py > cpac.log &
 ```
-	
 
 ## Group-wise ICA using GIFT
 
@@ -181,7 +182,6 @@ The following ICA components were associated to the following RSN.
 * Somato-Motor Network (SMN): 3+12+4+5
 * Auditory Network (AN): 19
 
-
 ### temporal connectivity
 The temoporal connectivity was calculated using the in-house developed Python script ([sle_7T_rsfmri_pp_master_figures.py](sle_7T_rsfmri_pp_master_figures.py)). The RNS and connectograms were visualized using the Matlab function file ([icatb_plot_connectogram.m](icatb_plot_connectogram.m)).
 
@@ -208,7 +208,6 @@ image_file_names = 'gica_mean_component_ica_s2_.nii';
 template_file = 'MNI_template/tpl-MNI152NLin2009cAsym_res-01_desc-brain_T1w.nii';
 ```
 
-
 ### spatial pattern
 To investiage spatial pattern differences between CPAC and fMRIprep the GIFT utility "SPM STATS" was used. First a one-paired t-test from either CPAC or fMRIprep is necessary to calculated the paired-t-test (CPAC minus fMRIprep).
 OBS! set SPM_STATS_TTEST2_EXPLICIT_MASK = 0 in icatb_defaults.m 
@@ -216,8 +215,11 @@ OBS! set SPM_STATS_TTEST2_EXPLICIT_MASK = 0 in icatb_defaults.m
 SPM12 was used to test for multiple comparison. 
 
 
+
 # Figures
 All figures were greated using the in-house developed Python script ([sle_7T_rsfmri_pp_master_figures.py](sle_7T_rsfmri_pp_master_figures.py)) and ([icatb_plot_connectogram.m](icatb_plot_connectogram.m)).
+
+
 
 # Copyright
 Copyright © Theodor Rumetshofer, Department of Clinical Science/Diagnostic Radiology, Lund University, Sweden 
