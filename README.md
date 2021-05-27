@@ -84,7 +84,9 @@ A non-compiled version of the GIFT packages was downloaded which was copied, wit
 4) BIDS was tested using the following validator: https://bids-standard.github.io/bids-validator/
 
 **No erros detected**
-<span style="color:blue">**No erros detected**</span>.
+```diff
+- **No erros detected**
+```
 
 ## Quality assessments of the input data
 This was done visually using an in-house developed Python script "sle_7T_rsfmri_QA_raw.py"
