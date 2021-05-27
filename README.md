@@ -82,10 +82,11 @@ A non-compiled version of the GIFT packages was downloaded which was copied, wit
 
 # Preprocessing
 
-## pre-pare the data
+## data curation
+
 1) From the SLE 7T MRI project (number: 017) the following subjects were included: 116, 117, 119, 122, 126, 130, 131, 132, 133, 138
 2) The following MRI files were copied from the archive: rsfMRI, T1w, phasediff, magnitude
-3) The data was transfored to BIDS format (see: https://bids-specification.readthedocs.io/en/latest/04-modality-specific-files/01-magnetic-resonance-imaging-data.html#common-metadata-fields) using the in-house developed Python script "sle_7T_copy_files.py"
+3) The data was transformed to BIDS format (see: https://bids-specification.readthedocs.io/en/latest/04-modality-specific-files/01-magnetic-resonance-imaging-data.html#common-metadata-fields) using the in-house developed Python script ([data_formatting.py](data_formatting.py))
 4) BIDS was tested using the following validator: https://bids-standard.github.io/bids-validator/
 
 **No erros detected**
