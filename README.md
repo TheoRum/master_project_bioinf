@@ -144,17 +144,17 @@ docker run -itd --name ppCPAC -v $HOME/hd/SLE/DATA_7T/rsfmri_200909/Nifti_master
 The comparison of the framewise displacement (FD) was done visually using an in-house developed Python script ([fd_comparison_QA.py](fd_comparison_QA.py)).
 
 ### fMRIprep
-The nuisance regression was only necessary to apply on the data from fMRIprep. Additionally, a normalization and high-motion volumes were removed from the time-series (scrubbing) using an in-house developed Python script ([sle_7T_rsfmri_pp_master_fmriprep.py](sle_7T_rsfmri_pp_master_fmriprep.py)).
+The nuisance regression was only necessary to apply on the data from fMRIprep. Additionally, a normalization and high-motion volumes were removed from the time-series (scrubbing) using an in-house developed Python script ([postprocessing_fmriprep.py](postprocessing_fmriprep.py)).
 
 ```bash
-nohup python -u ./sle_7T_rsfmri_pp_master_fmriprep.py > fmriprep.log &
+nohup python -u ./postprocessing_fmriprep.py > fmriprep.log &
 ```
 
 ### CPAC
-For the CPAC output, only normalization and scrubbing was applied using an in-house developed Python script ([sle_7T_rsfmri_pp_master_cpac.py](sle_7T_rsfmri_pp_master_cpac.py)).
+For the CPAC output, only normalization and scrubbing was applied using an in-house developed Python script ([postprocessing_cpac.py](postprocessing_cpac.py)).
 
 ```bash
-nohup python -u ./sle_7T_rsfmri_pp_master_cpac.py > cpac.log &
+nohup python -u ./postprocessing_cpac.py > cpac.log &
 ```
 
 ## Group-wise ICA using GIFT
@@ -185,7 +185,7 @@ The following ICA components were associated to the following RSN.
 * Auditory Network (AN): 19
 
 ### temporal connectivity
-The temoporal connectivity was calculated using the in-house developed Python script ([sle_7T_rsfmri_pp_master_figures.py](sle_7T_rsfmri_pp_master_figures.py)). The RNS and connectograms were visualized using the Matlab function file ([icatb_plot_connectogram.m](icatb_plot_connectogram.m)).
+The temoporal connectivity was calculated using the in-house developed Python script ([figures.py](figures.py)). The RNS and connectograms were visualized using the Matlab function file "icatb_plot_connectogram".
 
 * for all components over both runs the parameters were set the following;
 ```Matlab
@@ -219,7 +219,7 @@ SPM12 was used to test for multiple comparison.
 
 
 # Figures
-All figures were greated using the in-house developed Python script ([sle_7T_rsfmri_pp_master_figures.py](sle_7T_rsfmri_pp_master_figures.py)) and ([icatb_plot_connectogram.m](icatb_plot_connectogram.m)).
+All figures were greated using the in-house developed Python script ([figures.py](figures.py)) and ([connectogram_plot.m](connectogram_plot.m)).
 
 
 
