@@ -83,7 +83,7 @@ A non-compiled version of the GIFT packages was downloaded which was copied, wit
 # Preprocessing
 An overview of all preprocessing steps can be seen in the image above. Those steps are separated in four different parts. 
 
-<img src="images/preprocessing_pipelines.png" width="560" height="710" />
+<img src="images/pp_pipelines.png" width="560" height="710" />
 
 ## input data
 
